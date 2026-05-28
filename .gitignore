@@ -1,0 +1,10 @@
+# Gazebo/Simulation artifacts
+build/
+install/
+log/
+*.log
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db

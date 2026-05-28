@@ -1,0 +1,19 @@
+{
+  "name": "OKMR-Workspace",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-iot.vscode-ros",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "runArgs": [
+    "--net=host"
+  ],
+  "postCreateCommand": "echo 'Workspace ready. Ensure Gazebo Harmonic is installed natively on your OS to run GUI.'",
+  "remoteUser": "ubuntu"
+}
