@@ -4,6 +4,7 @@
     <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
     <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
     <plugin filename="gz-sim-buoyancy-system" name="gz::sim::systems::Buoyancy">
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
       <uniform_fluid_density>1000</uniform_fluid_density>
     </plugin>
 
@@ -16,33 +17,37 @@
     </light>
 
     <model name="cascade">
-      <pose>0 0 5 0 0 0</pose> <plugin filename="gz-sim-hydrodynamics-system" name="gz::sim::systems::Hydrodynamics">
-        <link_name>base_link</link_name>
-        <xDotU>-4.876161</xDotU> <yDotV>-126.324739</yDotV> <zDotW>-126.324739</zDotW>
-        <kDotP>0</kDotP> <mDotQ>-33.46</mDotQ> <nDotR>-33.46</nDotR>
-        <xU>0</xU> <yV>0</yV> <zW>0</zW>
-        <kP>-5.0</kP> <mQ>-33.46</mQ> <nR>-5.0</nR>
-        <xUabsU>-6.2282</xUabsU> <yVabsV>-601.27</yVabsV> <zWabsW>-601.27</zWabsW>
-        <kPabsP>-15.0</kPabsP> <mQabsQ>-632.698957</mQabsQ> <nRabsR>-632.698957</nRabsR>
-      </plugin>
+      <pose>0 0 5 0 0 0</pose> 
 
       <link name="base_link">
         <inertial>
           <pose>0 0 0 0 0 0</pose>
-          <mass>139.8671</mass> <inertia>
-            <ixx>3.000000</ixx><ixy>0</ixy><ixz>0</ixz>
-            <iyy>41.980233</iyy><iyz>0</iyz>
-            <izz>41.980233</izz>
+          <mass>152.0</mass>
+          <inertia>
+            <ixx>5.4</ixx> <iyy>10.6</iyy> <izz>11.8</izz>
+            <ixy>0</ixy> <ixz>0</ixz> <iyz>0</iyz>
           </inertia>
         </inertial>
-        <visual name="hull_visual">
-          <pose>0 0 0 0 1.5708 0</pose>
-          <geometry><cylinder><radius>0.2</radius><length>0.6</length></cylinder></geometry>
-          <material><ambient>1 0.5 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material>
-        </visual>
-        <collision name="hull_collision">
-          <geometry><box><size>2 0.3 0.246445166667</size></box></geometry>
+
+        <collision name="base_collision">
+          <geometry>
+            <box><size>0.8 0.5 0.4</size></box> </geometry>
         </collision>
+
+        <visual name="base_visual">
+          <geometry>
+             <box><size>0.8 0.5 0.4</size></box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.1 1.0</ambient> <diffuse>0.8 0.8 0.1 1.0</diffuse>
+          </material>
+        </visual>
+
+        <sensor name="imu_sensor" type="imu">
+          <always_on>1</always_on>
+          <update_rate>50</update_rate> <visualize>true</visualize>
+          <topic>/cascade/imu</topic>
+        </sensor>
       </link>
 
       <link name="propeller_fro"><pose>0.55 -0.3 0 0 0 0.52359</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial><visual name="v_fro"><geometry><box><size>0.03 0.1 0.03</size></box></geometry><material><ambient>0 0 1 1</ambient></material></visual></link>
@@ -78,5 +83,14 @@
       <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_bli_joint</joint_name><topic>/cascade/bli</topic><thrust_coefficient>1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
       
       </model>
+
+      <scene>
+      <ambient>0.0 0.5 0.8 1.0</ambient> 
+      <background>0.0 0.2 0.3 1.0</background>
+      <fog>
+        <type>linear</type>
+        <color>0.0 0.3 0.5 1.0</color> <density>0.1</density>
+        <start>0.5</start> <end>10.0</end> </fog>
+    </scene>
   </world>
 </sdf>
