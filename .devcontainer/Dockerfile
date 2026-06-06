@@ -6,6 +6,7 @@ USER root
 # Install ROS2 and Gazebo
 RUN apt-get update && apt-get install -y \
     ros-jazzy-ros-gz \
+    ros-jazzy-rosbridge-suite \
     && rm -rf /var/lib/apt/lists/*
 
 USER ubuntu

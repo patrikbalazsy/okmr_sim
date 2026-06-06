@@ -81,35 +81,83 @@
 
       <link name="propeller_fro"><pose>0.55 -0.3 0 0 0 0.52359</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial></link>
       <joint name="propeller_fro_joint" type="revolute"><parent>base_link</parent><child>propeller_fro</child><axis><xyz>1 0 0</xyz></axis></joint>
-      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_fro_joint</joint_name><topic>/cascade/fro</topic><thrust_coefficient>1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <joint_name>propeller_fro_joint</joint_name>
+        <topic>fro</topic>
+        <thrust_coefficient>1.0</thrust_coefficient>
+        <propeller_diameter>0.15</propeller_diameter>
+        <velocity_control>false</velocity_control>
+      </plugin>
 
       <link name="propeller_flo"><pose>0.55 0.3 0 0 0 -0.52359</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial></link>
       <joint name="propeller_flo_joint" type="revolute"><parent>base_link</parent><child>propeller_flo</child><axis><xyz>1 0 0</xyz></axis></joint>
-      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_flo_joint</joint_name><topic>/cascade/flo</topic><thrust_coefficient>1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <joint_name>propeller_flo_joint</joint_name>
+        <topic>flo</topic>
+        <thrust_coefficient>1.0</thrust_coefficient>
+        <propeller_diameter>0.15</propeller_diameter>
+        <velocity_control>false</velocity_control>
+      </plugin>
 
       <link name="propeller_bro"><pose>-0.55 -0.3 0 0 0 2.618</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial></link>
       <joint name="propeller_bro_joint" type="revolute"><parent>base_link</parent><child>propeller_bro</child><axis><xyz>1 0 0</xyz></axis></joint>
-      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_bro_joint</joint_name><topic>/cascade/bro</topic><thrust_coefficient>1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <joint_name>propeller_bro_joint</joint_name>
+        <topic>bro</topic>
+        <thrust_coefficient>1.0</thrust_coefficient>
+        <propeller_diameter>0.15</propeller_diameter>
+        <velocity_control>false</velocity_control>
+      </plugin>
 
       <link name="propeller_blo"><pose>-0.55 0.3 0 0 0 3.66519</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial></link>
       <joint name="propeller_blo_joint" type="revolute"><parent>base_link</parent><child>propeller_blo</child><axis><xyz>1 0 0</xyz></axis></joint>
-      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_blo_joint</joint_name><topic>/cascade/blo</topic><thrust_coefficient>1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <joint_name>propeller_blo_joint</joint_name>
+        <topic>blo</topic>
+        <thrust_coefficient>1.0</thrust_coefficient>
+        <propeller_diameter>0.15</propeller_diameter>
+        <velocity_control>false</velocity_control>
+      </plugin>
 
       <link name="propeller_fri"><pose>0.45 -0.2 0 0 0 0</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial></link>
       <joint name="propeller_fri_joint" type="revolute"><parent>base_link</parent><child>propeller_fri</child><axis><xyz>0 0 1</xyz></axis></joint>
-      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_fri_joint</joint_name><topic>/cascade/fri</topic><thrust_coefficient>1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <joint_name>propeller_fri_joint</joint_name>
+        <topic>fri</topic>
+        <thrust_coefficient>1.0</thrust_coefficient>
+        <propeller_diameter>0.15</propeller_diameter>
+        <velocity_control>false</velocity_control>
+      </plugin>
 
       <link name="propeller_fli"><pose>0.45 0.2 0 0 0 0</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial></link>
       <joint name="propeller_fli_joint" type="revolute"><parent>base_link</parent><child>propeller_fli</child><axis><xyz>0 0 1</xyz></axis></joint>
-      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_fli_joint</joint_name><topic>/cascade/fli</topic><thrust_coefficient>-1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <joint_name>propeller_fli_joint</joint_name>
+        <topic>fli</topic>
+        <thrust_coefficient>-1.0</thrust_coefficient>
+        <propeller_diameter>0.15</propeller_diameter>
+        <velocity_control>false</velocity_control>
+      </plugin>
 
       <link name="propeller_bri"><pose>-0.45 -0.2 0 0 0 0</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial></link>
       <joint name="propeller_bri_joint" type="revolute"><parent>base_link</parent><child>propeller_bri</child><axis><xyz>0 0 1</xyz></axis></joint>
-      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_bri_joint</joint_name><topic>/cascade/bri</topic><thrust_coefficient>-1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <joint_name>propeller_bri_joint</joint_name>
+        <topic>bri</topic>
+        <thrust_coefficient>-1.0</thrust_coefficient>
+        <propeller_diameter>0.15</propeller_diameter>
+        <velocity_control>false</velocity_control>
+      </plugin>
 
       <link name="propeller_bli"><pose>-0.45 0.2 0 0 0 0</pose><inertial><mass>1.0</mass><inertia><ixx>0.01</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.01</iyy><iyz>0</iyz><izz>0.01</izz></inertia></inertial></link>
       <joint name="propeller_bli_joint" type="revolute"><parent>base_link</parent><child>propeller_bli</child><axis><xyz>0 0 1</xyz></axis></joint>
-      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>propeller_bli_joint</joint_name><topic>/cascade/bli</topic><thrust_coefficient>1.0</thrust_coefficient><propeller_diameter>0.15</propeller_diameter><velocity_control>false</velocity_control></plugin>
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <joint_name>propeller_bli_joint</joint_name>
+        <topic>bli</topic>
+        <thrust_coefficient>1.0</thrust_coefficient>
+        <propeller_diameter>0.15</propeller_diameter>
+        <velocity_control>false</velocity_control>
+      </plugin>
       
       </model>
 
