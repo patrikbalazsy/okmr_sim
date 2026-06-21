@@ -11,9 +11,9 @@
       ]
     }
   },
-  "runArgs": [
-    "--net=host"
+  "forwardPorts": [
+    8765
   ],
-  "postCreateCommand": "echo 'Workspace ready. Ensure Gazebo Harmonic is installed natively on your OS to run GUI.'",
+  "postCreateCommand": "echo 'OKMR Workspace ready. Launch headless Gazebo and the Foxglove bridge to begin.'",
   "remoteUser": "ubuntu"
 }
