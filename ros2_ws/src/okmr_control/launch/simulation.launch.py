@@ -6,7 +6,7 @@ from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-    # Start Headless Gazebo
+    # Start headless Gazebo
     world_file_path = '/workspaces/okmr_sim/worlds/auv.sdf'
 
     gazebo_process = ExecuteProcess(
@@ -19,7 +19,7 @@ def generate_launch_description():
         output='screen'
     )
 
-    # ROS-Gazebo Parameter Bridge
+    # ROS Gz parameter bridge
     ros_gz_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -28,12 +28,16 @@ def generate_launch_description():
             '/cascade/flo@std_msgs/msg/Float64@gz.msgs.Double',
             '/cascade/bro@std_msgs/msg/Float64@gz.msgs.Double',
             '/cascade/blo@std_msgs/msg/Float64@gz.msgs.Double',
+            '/cascade/fri@std_msgs/msg/Float64@gz.msgs.Double',
+            '/cascade/fli@std_msgs/msg/Float64@gz.msgs.Double',
+            '/cascade/bri@std_msgs/msg/Float64@gz.msgs.Double',
+            '/cascade/bli@std_msgs/msg/Float64@gz.msgs.Double',
             '/model/cascade/odometry_with_covariance@nav_msgs/msg/Odometry@gz.msgs.OdometryWithCovariance'
         ],
         output='screen'
     )
 
-    # Foxglove WebSocket Bridge
+    # Foxglove websocket bridge
     foxglove_bridge = IncludeLaunchDescription(
         AnyLaunchDescriptionSource([
             os.path.join(
@@ -45,7 +49,7 @@ def generate_launch_description():
         launch_arguments={'port': '8765'}.items()
     )
 
-    # Static Transform for Foxglove 3D plot
+    # 3D space visualization in Foxglove
     static_tf = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -53,6 +57,7 @@ def generate_launch_description():
         output='screen'
     )
 
+    #Custom PID controller
     pid_controller = Node(
         package='okmr_control',
         executable='thruster_driver',

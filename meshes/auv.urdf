@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="cascade_auv">
+  <link name="cascade">
+    <visual>
+      <origin xyz="-0.75 1.55 -1.15" rpy="0 0 0"/> 
+
+      <geometry>
+        <mesh filename="file:///Users/patrikbalazsy/okmr_sim/meshes/cascade_hull.obj" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 0.8 0 1"/>
+      </material>
+    </visual>
+  </link>
+</robot>
